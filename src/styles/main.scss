@@ -5,5 +5,18 @@ body {
   background-color: antiquewhite;
   color: brown;
   text-align: center;
-  margin-top: 100px;
+}
+
+.hide {
+  display: none;
+}
+
+.welcome-logo {
+  font-size: 10em;
+  color: #78573b;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
 }
