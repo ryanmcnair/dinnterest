@@ -1,81 +1,54 @@
-# Webpack Intro
+# Pinterest
 
-[See Live Demo](https://webpack-temp.netlify.app/)
+Your team has been tasked with creating pinterest.  If you live under a rock and have never used pinterest before go figure out what it does. TLDR; users create boards and can pin urls to the boards
 
-Webpack is a task runner and a module bundler. It originally started as a module bundler. This means that it takes all of your separate Javascript modules and bundles them together into a single file. Webpack also automates some of the tasks that we have to run every time we change the code. It will automate these tasks so that we are not typing in the same commands every single time.
+## Requirements
+* Clean code - single responsibility principle
+* ES6 Modules bundled with webpack
+* No errors - linters should be clean
+* Jquery for any DOM manipulation (selectors, modifying css classes, events)
+* SASS and Bootstrap for styling
+* Completely planned out - before each section you should be making new cards before you code.  You should have wireframes and an ERD
 
-- Visit the [Webpack documentation](https://webpack.js.org/concepts/) if you want to explore more.
-- [Info on our Webpack Config](https://github.com/nss-nightclass-projects/Night-Class-Resources/blob/master/book-2-patterns-and-tools/chapters/webpack-configure.md)
+## HW Parts
 
-## Get Started
+### Part 1: ERDs and Authentication
+* Create an ERD for pinterest (do this in studygroup)
+* Create a new githup repo called pinterest
+* Create a setup branch and setup webpack (make a ticket for this first)
+* Create a new firebase project and enable google authentication
+* Create an authentication branch and add in all authentication that we did in class (navbar with logout button, google login button)
+* When your user is logged out they should see the navbar with only a brand.  And an h1 on the page that says PINTERST (make a `home` component for this)
+* When your user is logged in they should see a navbar with a brand and a logout button and an H1 on the page that says Boards (make a `boards` component for this)
 
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-![Use this Template](./documentation/usetemplate.png)
+### Part 2: READ
+#### Setup
+* Create some json data
+* Import that data into firebase
 
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-![Create Project](./documentation/createproject.png)
+#### User Stories
+* As a user, when I am logged in and the page loads, I should see all the boards that belong to me.
 
-3. Click the **GREEN** "Create repository from template" button
-4. Clone your new repo to your local machine
-5. Start working!
+* As a user, when I click on one of my boards, I should see a single board view that shows all pins for that board.
 
-## Starting the Project
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. To start your application, run `npm start`
+* As a user, when I am on the single board view, there should be some way to go back to all my boards.
 
-### If you see this, you are set to go!
-![LIT](./documentation/lit-screen.png)
+### Part 3: DELETE
+* As a user, I should be able to delete a pin from one of my board.
 
-**NOTE:** Changes you make to the project will make the browser reload on save...no more hard refresh unless something goes wrong.
+* As a user, I should be able to delete one of my boards.
 
-## Other Important Tidbits
-### Console messages
-From this time forward, you will be expected to have a clean console in order for your assignments to be approved. This means that the use of `console.log` is acceptable **_(debugger is WAY better though)_** while developing, but will throw a warning in your console like the image below, but all `logs` will have to be removed. You may use `console.error` and `console.warn` in your code however.
+* As a user, when I delete one of my boards all pins that were on that board should be deleted as well.
 
-![not acceptable](./documentation/notacceptable.png)
+### Part 4: CREATE
+* As a user, I should be able to create a new pin.
 
-### Including Images with Webpack
-If you have a folder of local images that you want to load into your code things get a little strange with webpack.  Remember the only way webpack knows about assets is if they are imported into your javascript files.  Even our CSS is not added until those files are imported into our javascript files.  Below is some sample code for how to load a local image file into your project
+* As a user, I should be able to create a new board.
 
-```js
-import cat from './assets/cat.jpg';
+### Part 5: UPDATE
+* As a user, I should be able to change which board a pin belongs to.
 
-let domString = `<img src=${cat} alt="picture of a cat"/>`;
+### Part 6: Deploy and Readme
+* As a user I should be able to use your app on the internet - it should be deployed using firebase.
 
-document.getElementById('cat').innerHTMl = domString;
-```
-
-### Importing CSS/SCSS
-```js
-import '../styles/main.scss';
-
-const init = () => {
-  $('#app').html('<h1>HELLO! You are up and running!</h1>');
-  console.log('YOU ARE UP AND RUNNING!');
-};
-
-init();
-```
-
-### Using Axios
-> For every file you will need to make an XHR request in, you will need to require Axios
-```js
-import axios from 'axios';
-
-const examplePromise = () => {
-  axios.get('http://localhost:3001/example')
-    .then((data) => {
-      console.warn(data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-});
-```
-
-### Deploying on Netlify
-
-- Build Command: `npm run build`
-- Publish directory: `build`
+* As a developer, I want to see an amazing README for this project.
