@@ -25,4 +25,15 @@ const getUser = (userObj) => {
     });
 };
 
-export default { getUser };
+const setCurrentUser = (userObj) => {
+  const user = {
+    image: userObj.photoURL,
+    uid: userObj.uid,
+    name: userObj.displayName,
+    email: userObj.email,
+    lastSignInTime: userObj.metadata.lastSignInTime,
+  };
+  return user;
+};
+
+export default { getUser, setCurrentUser };
