@@ -3,6 +3,7 @@ import 'firebase/auth';
 import navbar from '../myNavbar/myNavbar';
 import auth from '../components/auth/auth';
 import userData from './userData';
+import viewHelper from './viewHelper';
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -11,13 +12,15 @@ const checkLoginStatus = () => {
       $('#navbar-logout-button').removeClass('hide');
       $('#auth').addClass('hide');
       $('#app').html('<h1>Boards</h1');
+      viewHelper.viewListener('boards-link');
     } else {
       auth.loginButton();
       $('#navbar-logout-button').addClass('hide');
       $('#auth').removeClass('hide');
     }
+    const currentUser = userData.setCurrentUser(user);
+    navbar.myNavbar(currentUser);
   });
-  navbar.myNavbar();
 };
 
 export default { checkLoginStatus };
