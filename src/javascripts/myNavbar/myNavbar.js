@@ -20,7 +20,7 @@ const myNavbar = (currentUser) => {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
     <li class="nav-item mx-3" id="dinnterest">
-      <a class="nav-link" href="#"><i class="far fa-cow"></i><i class="fas fa-horse"></i> Boards</a>
+      <a class="nav-link" href="#"><i class="far fa-cow"></i><i class="fas fa-utensils"></i> Boards</a>
     </li>
     <li class="nav-item mx-3" id="add-cow-link">
       <a class="nav-link" href="#"><i class="fas fa-plus-circle"></i> Add A Board</a>

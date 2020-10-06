@@ -4,19 +4,20 @@ import apiKeys from './apiKeys.json';
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
 const getDinns = () => new Promise((resolve, reject) => {
-    axios
-      .get(`${baseUrl}/dinns.json`)
-      .then((response) => {
-        const dinns = response.data;
-        const dinnsArray = [];
-        if (boards) {
-          Object.keys(dinn).forEach((dinnId) => {
-            dinnsArray.push(dinns[dinnId]);
-          });
-        }
-        resolve(boardsArray);
-      })
-      .catch((error) => reject(error));
-  });
+  axios
+    .get(`${baseUrl}/dinns.json`)
+    .then((response) => {
+      const dinns = response.data;
+      const dinnsArray = [];
+      if (dinns) {
+        Object.keys(dinns).forEach((dinnId) => {
+          dinnsArray.push(dinns[dinnId]);
+        });
+      }
+      resolve(dinnsArray);
+    }).catch((error) => reject(error));
+});
 
-  export default { getDinns };
+const deleteDinn = (firebaseKey) => axios.delete(`${baseUrl}/dinns/${firebaseKey}.json`);
+
+export default { getDinns, deleteDinn };
