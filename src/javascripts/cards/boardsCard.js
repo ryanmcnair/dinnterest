@@ -6,7 +6,7 @@ const boardMaker = (boardObject) => {
                       <img class="card-img-top" id="dinns-link" src="${boardObject.image}" alt="${boardObject.name}">
                       <h5 class="card-title">${boardObject.name}</h5>
                         <a href="#" id="${boardObject.firebaseKey}" class="btn btn-danger delete-board">Delete</a>
-                        <a href="#" id="${boardObject.firebaseKey}" class="btn btn-primary add-dinn">Add Dinn</a>
+                        <a href="#" id="add-dinn-btn" class="btn btn-primary add-dinn">Add Dinn</a>
                       </div>
                     </div>`;
   $('body').on('click', '.delete-board', (e) => {

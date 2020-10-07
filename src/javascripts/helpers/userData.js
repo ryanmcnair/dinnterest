@@ -3,27 +3,19 @@ import apiKeys from './apiKeys.json';
 
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
-const getUser = (userObj) => {
-  axios
-    .get(`${baseUrl}/users.json?orderBy="uid"&equalTo="${userObj.uid}"`)
-    .then((resp) => {
-      if (Object.values(resp.data).length === 0) {
-        axios({
-          method: 'post',
-          url: `${baseUrl}/users.json`,
-          data: {
-            image: userObj.photoURL,
-            displayName: userObj.displayName,
-            uid: userObj.uid,
-            email: userObj.email,
-            lastSignInTime: userObj.metadata.lastSignInTime,
-          },
-        }).then(console.warn('user posted'));
-      } else {
-        console.warn('User Exists');
-      }
-    });
-};
+const getUser = () => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/users.json`).then((response) => {
+    const userData = response.data;
+    const users = [];
+    console.warn(users);
+    if (userData) {
+      Object.keys(userData).forEach((item) => {
+        users.push(userData[item]);
+      });
+    }
+    resolve(users);
+  }).catch((error) => reject(error));
+});
 
 const setCurrentUser = (userObj) => {
   const user = {

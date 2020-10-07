@@ -1,5 +1,7 @@
 import boardsView from '../views/boardsView';
 import dinnsView from '../views/dinnsView';
+import addBoardView from '../views/addBoardView';
+import addDinnView from '../views/addDinnView';
 
 const viewHelper = (id) => {
   $('#app').html('');
@@ -8,6 +10,10 @@ const viewHelper = (id) => {
       return boardsView.boardsView();
     case 'dinns-link':
       return dinnsView.dinnsView();
+    case 'add-board-link':
+      return addBoardView.addBoardView();
+    case 'add-dinn-link':
+      return addDinnView.addDinnView();
     default:
       return console.warn('something is wrong');
   }

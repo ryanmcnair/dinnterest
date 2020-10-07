@@ -20,4 +20,11 @@ const getDinns = () => new Promise((resolve, reject) => {
 
 const deleteDinn = (firebaseKey) => axios.delete(`${baseUrl}/dinns/${firebaseKey}.json`);
 
-export default { getDinns, deleteDinn };
+const addDinn = (data) => axios
+  .post(`${baseUrl}/dinns.json`, data)
+  .then((response) => {
+    const update = { firebaseKey: response.data.name };
+    axios.patch(`${baseUrl}/dinns/${response.data.name}.json`, update);
+  }).catch((error) => console.warn(error));
+
+export default { getDinns, deleteDinn, addDinn };
