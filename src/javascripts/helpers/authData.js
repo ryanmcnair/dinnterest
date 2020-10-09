@@ -18,8 +18,7 @@ const checkLoginStatus = () => {
       $('#navbar-logout-button').addClass('hide');
       $('#auth').removeClass('hide');
     }
-    const currentUser = userData.setCurrentUser(user);
-    navbar.myNavbar(currentUser);
+    navbar.myNavbar();
   });
 };
 
