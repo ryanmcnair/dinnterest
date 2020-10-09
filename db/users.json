@@ -1,6 +1,6 @@
 {
     "user1": {
-        "userId": "1",
+        "uid": "1",
         "name": "Mickey Mouse",
         "email": "MMouse@email.com"
     }

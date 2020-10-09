@@ -8,21 +8,15 @@ const getUser = (userObj) => {
     .get(`${baseUrl}/users.json?orderBy="uid"&equalTo="${userObj.uid}"`)
     .then((resp) => {
       if (Object.values(resp.data).length === 0) {
-        axios({
-          method: 'post',
-          url: `${baseUrl}/users.json`,
-          data: {
-            image: userObj.photoURL,
-            displayName: userObj.displayName,
-            uid: userObj.uid,
-            email: userObj.email,
-            lastSignInTime: userObj.metadata.lastSignInTime,
-          },
-        }).then(console.warn('user posted'));
-      } else {
-        console.warn('User Exists');
+        axios.post(`${baseUrl}/users.json`, {
+          image: userObj.photoURL,
+          uid: userObj.uid,
+          displayName: userObj.displayName,
+          email: userObj.email,
+          lastSignInTime: userObj.metadata.lastSignInTime
+        });
       }
-    });
+    }).catch((error) => console.warn(error));
 };
 
 const setCurrentUser = (userObj) => {
