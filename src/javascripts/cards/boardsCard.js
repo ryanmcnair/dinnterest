@@ -1,20 +1,21 @@
-import board from '../helpers/boardData';
+import boardData from '../helpers/boardData';
 
 const boardMaker = (boardObject) => {
-  const domString = `<div class="card m-2" style="width: 18rem;" id="${boardObject.firebaseKey}">
-                      <div class="card-body">
-                      <img class="card-img-top" id="dinns-link" src="${boardObject.image}" alt="${boardObject.name}">
-                      <h5 class="card-title">${boardObject.name}</h5>
-                        <a href="#" id="${boardObject.firebaseKey}" class="btn btn-danger delete-board">Delete</a>
-                        <a href="#" id="add-dinn-btn" class="btn btn-primary add-dinn">Add Dinn</a>
-                      </div>
-                    </div>`;
+  const domString = `<div class="card board" style="width: 18rem;" id="${boardObject.firebaseKey}">
+  <img src="${boardObject.image}" id="${boardObject.firebaseKey}" class="card-img-top see-dinns" alt="${boardObject.name}">
+  <div class="card-body">
+    <h5 class="card-title">${boardObject.name}</h5>
+    <a href="#" id="${boardObject.firebaseKey}" class="btn btn-primary delete-board">Delete</a>
+  </div>
+</div>`;
+
   $('body').on('click', '.delete-board', (e) => {
     e.stopImmediatePropagation();
     const firebaseKey = e.currentTarget.id;
     $(`.card#${firebaseKey}`).remove();
-    board.deleteBoard(firebaseKey);
+    boardData.deleteBoard(firebaseKey);
   });
+
   return domString;
 };
 
