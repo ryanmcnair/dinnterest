@@ -10,7 +10,7 @@ const logoutEvent = () => {
   });
 };
 
-const myNavbar = (currentUser) => {
+const myNavbar = () => {
   $('#nav').html(
     `<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
         <a class="navbar-brand">Dinnterest</a>
@@ -32,7 +32,7 @@ const myNavbar = (currentUser) => {
       </ul>
           <ul class="navbar-nav ml-auto">
           <li class="user-info-nav">
-          Dinner time,  ${currentUser.name}
+          
         </li>
             <li class="nav-item">
               <button class="nav-link btn btn-danger p-2" id="navbar-logout-button">Logout</button>

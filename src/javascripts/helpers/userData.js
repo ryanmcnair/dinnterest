@@ -20,6 +20,7 @@ const getUser = (userObj) => {
 };
 
 const setCurrentUser = (userObj) => {
+  console.warn(userObj);
   const user = {
     image: userObj.photoURL,
     uid: userObj.uid,
