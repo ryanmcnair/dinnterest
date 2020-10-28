@@ -13,12 +13,12 @@ const checkLoginStatus = () => {
       $('#auth').addClass('hide');
       $('#app').html('<h1>Boards</h1');
       viewHelper.viewListener('boards-link');
+      navbar.myNavbar();
     } else {
       auth.loginButton();
       $('#navbar-logout-button').addClass('hide');
       $('#auth').removeClass('hide');
     }
-    navbar.myNavbar();
   });
 };
 

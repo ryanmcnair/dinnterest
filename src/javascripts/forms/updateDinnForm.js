@@ -33,7 +33,7 @@ const updateDinnForm = (dinnObject) => {
             </form>`
   );
 
-  boardData.getBoards().then((response) => {
+  boardData.getUserBoards().then((response) => {
     response.forEach((item) => {
       $('select').append(`<option value="${item.firebaseKey}" ${dinnObject.boardId === item.firebaseKey ? "selected='selected'" : ''}>${item.name}</option>`);
     });
